@@ -14,14 +14,19 @@
 	      if (request.status >= 200 && request.status < 400) {
 		document.getElementById("newstuff").innerHTML = String(data);
 	      } else {
-		document.getElementById("newstuff").innerHTML = "API error";
+		      document.getElementById("newstuff").innerHTML = "<div style=\"text-align: center\"><API error</div>";
               }
 	  }
 	  request.onerror = function () {
-		document.getElementById("newstuff").innerHTML = "Error";      
+		  document.getElementById("newstuff").innerHTML = "<div style=\"text-align: center\">Error</div>";      
 	  }
 	  request.send();
 	  }
+
+
+        function learnmore() {
+		alert("Learn more button pushed!");
+	}
 
 	</script>
 
@@ -103,6 +108,12 @@
 		line-height: 21px;
 		font-size: 16px;
 		padding-left: 25px;
+	#helpicon {
+		display: flex;
+		height: 50px;
+		line-height: 30px;
+		padding-left: 25px;
+	}
 	}
 	#formrow {
 		padding: 0 auto 0;
@@ -129,11 +140,11 @@
 		padding-bottom: 11px;
 		margin-left:10px;
 	}
-	#newstuff {
+	#article {
     		max-width: 715px;
 		margin: 0 auto 0;
 	}
-	#newstuff h1 {
+	#article h1 {
 		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
 		font-size: 40px;
 		font-weight: 300;
@@ -144,17 +155,29 @@
 		padding-bottom: 30px;
 		padding-top: 40px;
 	}
-	#newstuff h2 {
+	#article h2 {
 		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
 		font-size: 24px;
 		font-weight: 400;
 		line-height: 31px;
 	}
-	#newstuff p {
+	#article p {
 		font-family: RedHatText, Overpass, Helvetica, Arial, sans-serif;
 		font-size: 20px;
 		font-weight: 300;
 		line-height: 30px;
+	}
+	#bottomband {
+		background-color: rgb(240, 240, 240);
+		width: 100%;
+		padding: 30px;
+		text-align: center;
+	}
+	#bottomband h2 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 36px;
+		font-weight: 400;
+		line-height: 46px;
 	}
 
 	</style>
@@ -166,8 +189,9 @@
 <div class="header">
 <div id="logo">Articlebot</div>
 <div id="description"><p>A machine learning experiment trained on 200 Red Hat article pages</p></div>
+<div id="helpicon"><img src="questionmark.png" width="30" height="30" border="0" onclick="learnmore()"></div>
 </div>
-<div id="formrow">
+<div id="formrow">i
 <input id="textbox1" type="text" placeholder="Enter Topic" autofocus>
 <button onclick="apifunction(document.getElementById('textbox1').value)" type="submit">Go</button>
 </div>

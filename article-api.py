@@ -95,13 +95,13 @@ def articlebot(subjectinput):
 	if (firstline > 200) :
 	  firstline = articleout.find(' ',200)
 	 
-	articleout = "<h1>" + articleout[:firstline] + "</h1>\n" + articleout[firstline:]
+	articleout = "<div id=\"article\"><h1>" + articleout[:firstline] + "</h1>\n" + articleout[firstline:]
 
 	#change other lines of articleout to p or H2 depending on length
 
 	articleout = articleout.replace("\n\n", "\n")
         
-	location = firstline + 10
+	location = firstline + 28
 	lastlocation = location
 	lastlinewasheader = True
 	i = 0
@@ -125,9 +125,9 @@ def articlebot(subjectinput):
 	      lastlinewasheader = False
 	      location = location + 9
 	    lastlocation = location
-
-	articleout = articleout[:lastlocation] + "<p>" + articleout[lastlocation:(len(articleout))] + "</p>"
-
+        
+	articleout = articleout[:lastlocation] + "<p>" + articleout[lastlocation:(len(articleout))] + "</p></div>"
+	articleout = articleout + '<div id="bottomband"><h2>There\'s a lot more to do with ' + seedphrase + '</h2><button onclick="learnmore()" type="submit">Learn more</button></div>'
 	return articleout
 
 
