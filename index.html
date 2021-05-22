@@ -31,8 +31,8 @@
 	
 @font-face {
   font-family: "RedHatDisplay";
-  src: url("RedHatText-Regular.woff2") format("woff2"),
-       url("RedHatText-Regular.woff") format("woff");
+  src: url("RedHatDisplay-Regular.woff2") format("woff2"),
+       url("RedHatDisplay-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
@@ -75,24 +75,85 @@
 }
 
 	body {
-		font-family: RedHatText,"Red Hat Text",Overpass,Overpass,"Helvetica Neue",Arial,sans-serif;
+		font-family: RedHatText,"Red Hat Text",Overpass,"Helvetica Neue",Arial,sans-serif;
+		padding: 0px;
+		margin: 0px;
 	}
         .header {
 		background-color: rgb(21,21,21);
-		color: rgb(255,255,255);
-		font-size: 18px;
-		line-height: 26px;
+		color: rgb(255,255,255);		
 		display: block;
 		width: 100%;
 		padding: 0;
+		margin: 0;
 	}
 	#logo {
-		font-size: 30px;
-		float: left;
+		font-size: 25px;
 		font-family: RedHatDisplay;
 		font-weight: bold;
+		padding: 15px;
+		margin: 0px;
+		float: left;
+		display: flex;
+		line-height: 21px;
 	}
- 	</style>
+	#description {
+		display: flex;
+		height: 60px;
+		line-height: 21px;
+		font-size: 16px;
+		padding-left: 25px;
+	}
+	#formrow {
+		padding: 0 auto 0;
+		margin: 30px;
+		text-align: center;
+	}
+	input {
+		font-family: RedHatText;
+		font-size: 20px;
+		border-color: rgb(153, 153, 153);
+		border-width: 1px;
+		padding: 10px;
+	}
+	button {
+		font-family: RedHatDisplay;
+		font-size: 20px;
+		color: rgb(255, 255, 255);
+		background-color: rgb(207, 0, 0);
+		border-width: 0px;
+		border-radius: 4px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 11px;
+		padding-bottom: 11px;
+		margin-left:10px;
+	}
+	#newstuff {
+    		max-width: 715px;
+		margin: 0 auto 0;
+	}
+	#newstuff h1 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 40px;
+		font-weight: 300;
+		line-height: 48px;
+		text-align: left;
+	}
+	#newstuff h2 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 31px;
+	}
+	#newstuff p {
+		font-family: RedHatText, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 30px;
+	}
+
+	</style>
 
         </head>
 <body>
@@ -102,11 +163,11 @@
 <div id="logo">Articlebot</div>
 <div id="description"><p>A machine learning experiment trained on 200 Red Hat article pages</p></div>
 </div>
-<input id="textbox1" type="text" value="Enter Topic">
-<button onclick="apifunction(document.getElementById('textbox1').value)">Go</button>
-<br>
-<p id="newstuff">
-Awaiting button press
-</p>
+<div id="formrow">
+<input id="textbox1" type="text" placeholder="Enter Topic" autofocus>
+<button onclick="apifunction(document.getElementById('textbox1').value)" type="submit">Go</button>
+</div>
+<div id="newstuff">
+</div>
 </body>
 
