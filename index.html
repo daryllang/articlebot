@@ -26,14 +26,72 @@
 	</script>
 
 
+
         <style>
-	.header {
+	
+@font-face {
+  font-family: "RedHatDisplay";
+  src: url("RedHatText-Regular.woff2") format("woff2"),
+       url("RedHatText-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "RedHatDisplay";
+  src: url("RedHatDisplay-Medium.woff2") format("woff2"),
+       url("RedHatDisplay-Medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "RedHatDisplay";
+  src: url("RedHatDisplay-Bold.woff2") format("woff2"),
+       url("RedHatDisplay-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "RedHatText";
+  src: url("RedHatText-Regular.woff2") format("woff2"),
+       url("RedHatText-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "RedHatText";
+  src: url("RedHatText-Medium.woff2") format("woff2"),
+       url("RedHatText-Medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+}
+
+	body {
+		font-family: RedHatText,"Red Hat Text",Overpass,Overpass,"Helvetica Neue",Arial,sans-serif;
+	}
+        .header {
 		background-color: rgb(21,21,21);
 		color: rgb(255,255,255);
 		font-size: 18px;
-	
+		line-height: 26px;
+		display: block;
+		width: 100%;
+		padding: 0;
 	}
-
+	#logo {
+		font-size: 30px;
+		float: left;
+		font-family: RedHatDisplay;
+		font-weight: bold;
+	}
  	</style>
 
         </head>
