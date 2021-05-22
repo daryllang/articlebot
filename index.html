@@ -1,0 +1,54 @@
+<html>
+        <head>
+        <script src="jquery-3.6.0.min.js"></script>
+	<script>
+        
+	function apifunction(inputsubject) {
+	  document.getElementById("newstuff").innerHTML = "<b>Thinking...</b>";
+	  var request = new XMLHttpRequest()
+          let url = new URL('http://3.92.200.245:5000');
+	  url.searchParams.set('subject', inputsubject);
+	  request.open('GET', url, true)
+          request.onload = function () {
+            var data = (this.response)
+	      if (request.status >= 200 && request.status < 400) {
+		document.getElementById("newstuff").innerHTML = String(data);
+	      } else {
+		document.getElementById("newstuff").innerHTML = "API error";
+              }
+	  }
+	  request.onerror = function () {
+		document.getElementById("newstuff").innerHTML = "Error";      
+	  }
+	  request.send();
+	  }
+
+	</script>
+
+
+        <style>
+	.header {
+		background-color: rgb(21,21,21);
+		color: rgb(255,255,255);
+		font-size: 18px;
+	
+	}
+
+ 	</style>
+
+        </head>
+<body>
+
+
+<div class="header">
+<div id="logo">Articlebot</div>
+<div id="description"><p>A machine learning experiment trained on 200 Red Hat article pages</p></div>
+</div>
+<input id="textbox1" type="text" value="Enter Topic">
+<button onclick="apifunction(document.getElementById('textbox1').value)">Go</button>
+<br>
+<p id="newstuff">
+Awaiting button press
+</p>
+</body>
+
