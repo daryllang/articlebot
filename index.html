@@ -4,7 +4,7 @@
 	<script>
         
 	function apifunction(inputsubject) {
-	  document.getElementById("newstuff").innerHTML = "<b>Thinking...</b>";
+		document.getElementById("newstuff").innerHTML = "<img src=\"spinner.gif\" width=\"64\" height=\"64\"><br><b>Thinking...</b>";
 	  var request = new XMLHttpRequest()
           let url = new URL('http://3.92.200.245:5000');
 	  url.searchParams.set('subject', inputsubject);
@@ -139,6 +139,9 @@
 		font-weight: 300;
 		line-height: 48px;
 		text-align: left;
+		border-bottom: 1px;
+		border-bottom-color: rgb(106, 110, 115);
+		padding-bottom: 20px;
 	}
 	#newstuff h2 {
 		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
