@@ -74,7 +74,6 @@ for n in range(length):
   result.append(next_char)
 
 result = tf.strings.join(result)
-end = time.time()
 articleout = (result[0].numpy().decode('utf-8'))
 
 #find last period in article and delete all characters after it

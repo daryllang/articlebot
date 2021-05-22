@@ -21,7 +21,7 @@ from gevent.pywsgi import WSGIServer
 
 #Define articlebot function
 
-def articlebot(subjectinput)
+def articlebot(subjectinput):
 	one_step_model = tf.saved_model.load('use-this-model')
 
 	seedphrase = subjectinput
@@ -84,7 +84,6 @@ def articlebot(subjectinput)
 	  result.append(next_char)
 
 	result = tf.strings.join(result)
-	end = time.time()
 	articleout = (result[0].numpy().decode('utf-8'))
 
 	#find last period in article and delete all characters after it
@@ -101,7 +100,7 @@ def articlebot(subjectinput)
 	#change other lines of articleout to p or H2 depending on length
 
 	articleout = articleout.replace("\n\n", "\n")
-
+        
 	location = firstline + 10
 	lastlocation = location
 	lastlinewasheader = True
