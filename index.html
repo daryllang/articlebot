@@ -25,7 +25,7 @@
 
 
         function learnmore() {
-		alert("Learn more button pushed!");
+		alert("Learn more button information coming soon.");
 	}
 
 	</script>
@@ -91,6 +91,7 @@
 		width: 100%;
 		padding: 0;
 		margin: 0;
+		height: 50px;
 	}
 	#logo {
 		font-size: 25px;
@@ -104,19 +105,21 @@
 	}
 	#description {
 		display: flex;
-		height: 50px;
 		line-height: 21px;
 		font-size: 16px;
 		padding-left: 25px;
+		float: left;
+	}
 	#helpicon {
 		display: flex;
-		height: 50px;
-		line-height: 30px;
-		padding-left: 25px;
-	}
+		width: 30px;
+		height: 30px;
+		padding-top: 10px;
+		margin-bottom: 10px;
+		float: right;
+		padding-right: 25px;
 	}
 	#formrow {
-		padding: 0 auto 0;
 		margin: 30px;
 		text-align: center;
 	}
@@ -170,7 +173,13 @@
 	#bottomband {
 		background-color: rgb(240, 240, 240);
 		width: 100%;
-		padding: 30px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		padding-left: 0px;
+		padding-right: 0px;
+		border-bottom-style: solid;
+		border-bottom-width: 30px;
+		border-bottom-color: rgb(21, 21, 21);
 		text-align: center;
 	}
 	#bottomband h2 {
@@ -191,11 +200,12 @@
 <div id="description"><p>A machine learning experiment trained on 200 Red Hat article pages</p></div>
 <div id="helpicon"><img src="questionmark.png" width="30" height="30" border="0" onclick="learnmore()"></div>
 </div>
-<div id="formrow">i
+<div id="formrow">
 <input id="textbox1" type="text" placeholder="Enter Topic" autofocus>
 <button onclick="apifunction(document.getElementById('textbox1').value)" type="submit">Go</button>
 </div>
 <div id="newstuff">
 </div>
+
 </body>
 
