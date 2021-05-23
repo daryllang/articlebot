@@ -3,31 +3,39 @@
         <script src="jquery-3.6.0.min.js"></script>
 	<script>
 
+        var tfrunning = false;
+
 	function apifunction(inputsubject) {
-	  document.getElementById("newstuff").innerHTML = "<div style=\"text-align: center\"><img src=\"spinner.gif\" width=\"64\" height=\"64\"></div>";
-	  var request = new XMLHttpRequest()
-          let url = new URL('http://3.92.200.245:5000');
-	  url.searchParams.set('subject', inputsubject);
-	  request.open('GET', url, true)
-          request.onload = function () {
-            var data = (this.response)
-	      if (request.status >= 200 && request.status < 400) {
-		document.getElementById("newstuff").innerHTML = String(data);
-	      } else {
-		      document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>API error</h2></div>";
-              }
-	  }
-	  request.onerror = function () {
-		  document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>Error</h2></div>";      
-	  }
-	  request.send();
-	  }
-
-
-        function learnmore() {
-		alert("Learn more button information coming soon.");
-	}
-
+		if (tfrunning == false) {
+		  tfrunning = true;
+		  console.log("Locked");
+		  document.getElementById("newstuff").innerHTML = "<div style=\"text-align: center\"><img src=\"spinner.gif\" width=\"64\" height=\"64\"></div>";
+		  var request = new XMLHttpRequest()
+		  let url = new URL('http://3.92.200.245:5000');
+		  url.searchParams.set('subject', inputsubject);
+		  request.open('GET', url, true)
+		  request.onload = function () {
+		  	var data = (this.response)
+			if (request.status >= 200 && request.status < 400) {
+			      document.getElementById("newstuff").innerHTML = String(data);			      
+		  	      tfrunning = false;
+			} else {
+			      document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>API error</h2></div>";
+                              tfrunning = false;
+			}	 
+		  }
+		  request.onerror = function () {
+			  document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>Error</h2></div>";      
+		          tfrunning = false;
+		  }
+		  request.send();
+		  }
+		}
+		   
+		function learnmore() {
+			alert("Learn more button information coming soon.");
+		}
+	      
 	</script>
 
 
@@ -36,8 +44,8 @@
 	
 @font-face {
   font-family: "RedHatDisplay";
-  src: url("RedHatDisplay-Regular.woff2") format("woff2"),
-       url("RedHatDisplay-Regular.woff") format("woff");
+  src: url("fonts/RedHatDisplay-Regular.woff2") format("woff2"),
+       url("fonts/RedHatDisplay-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 300;
   font-display: fallback;
@@ -45,8 +53,8 @@
 
 @font-face {
   font-family: "RedHatDisplay";
-  src: url("RedHatDisplay-Medium.woff2") format("woff2"),
-       url("RedHatDisplay-Medium.woff") format("woff");
+  src: url("fonts/RedHatDisplay-Medium.woff2") format("woff2"),
+       url("fonts/RedHatDisplay-Medium.woff") format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
@@ -54,8 +62,8 @@
 
 @font-face {
   font-family: "RedHatDisplay";
-  src: url("RedHatDisplay-Bold.woff2") format("woff2"),
-       url("RedHatDisplay-Bold.woff") format("woff");
+  src: url("fonts/RedHatDisplay-Bold.woff2") format("woff2"),
+       url("fonts/RedHatDisplay-Bold.woff") format("woff");
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
@@ -63,8 +71,8 @@
 
 @font-face {
   font-family: "RedHatText";
-  src: url("RedHatText-Regular.woff2") format("woff2"),
-       url("RedHatText-Regular.woff") format("woff");
+  src: url("fonts/RedHatText-Regular.woff2") format("woff2"),
+       url("fonts/RedHatText-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
@@ -72,8 +80,8 @@
 
 @font-face {
   font-family: "RedHatText";
-  src: url("RedHatText-Medium.woff2") format("woff2"),
-       url("RedHatText-Medium.woff") format("woff");
+  src: url("fonts/RedHatText-Medium.woff2") format("woff2"),
+       url("fonts/RedHatText/RedHatText-Medium.woff") format("woff");
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
