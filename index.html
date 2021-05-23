@@ -1,6 +1,14 @@
 <html>
         <head>
-        <script src="jquery-3.6.0.min.js"></script>
+
+	<title>Hatbot</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<meta name="viewport" content="width=device-width">
+	<meta name="robots" content="noindex" />
+
+	<script src="jquery-3.6.0.min.js"></script>
 	<script>
 
         var tfrunning = false;
@@ -8,7 +16,6 @@
 	function apifunction(inputsubject) {
 		if (tfrunning == false) {
 		  tfrunning = true;
-		  console.log("Locked");
 		  document.getElementById("newstuff").innerHTML = "<div style=\"text-align: center\"><img src=\"spinner.gif\" width=\"64\" height=\"64\"></div>";
 		  var request = new XMLHttpRequest()
 		  let url = new URL('http://3.92.200.245:5000');
@@ -33,59 +40,63 @@
 		}
 		   
 		function learnmore() {
-			alert("Learn more button information coming soon.");
+			document.getElementById("aboutband").style.display="block";	
 		}
-	      
+		
+		function closelearnmore() {
+			document.getElementById("aboutband").style.display="none";
+	      	}
+
 	</script>
 
 
 
         <style>
 	
-@font-face {
-  font-family: "RedHatDisplay";
-  src: url("fonts/RedHatDisplay-Regular.woff2") format("woff2"),
-       url("fonts/RedHatDisplay-Regular.woff") format("woff");
-  font-style: normal;
-  font-weight: 300;
-  font-display: fallback;
-}
+	@font-face {
+	  font-family: "RedHatDisplay";
+	  src: url("fonts/RedHatDisplay-Regular.woff2") format("woff2"),
+	       url("fonts/RedHatDisplay-Regular.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 300;
+	  font-display: fallback;
+	}
 
-@font-face {
-  font-family: "RedHatDisplay";
-  src: url("fonts/RedHatDisplay-Medium.woff2") format("woff2"),
-       url("fonts/RedHatDisplay-Medium.woff") format("woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: fallback;
-}
+	@font-face {
+	  font-family: "RedHatDisplay";
+	  src: url("fonts/RedHatDisplay-Medium.woff2") format("woff2"),
+	       url("fonts/RedHatDisplay-Medium.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 400;
+	  font-display: fallback;
+	}
 
-@font-face {
-  font-family: "RedHatDisplay";
-  src: url("fonts/RedHatDisplay-Bold.woff2") format("woff2"),
-       url("fonts/RedHatDisplay-Bold.woff") format("woff");
-  font-style: normal;
-  font-weight: 700;
-  font-display: fallback;
-}
+	@font-face {
+	  font-family: "RedHatDisplay";
+	  src: url("fonts/RedHatDisplay-Bold.woff2") format("woff2"),
+	       url("fonts/RedHatDisplay-Bold.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 700;
+	  font-display: fallback;
+	}
 
-@font-face {
-  font-family: "RedHatText";
-  src: url("fonts/RedHatText-Regular.woff2") format("woff2"),
-       url("fonts/RedHatText-Regular.woff") format("woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: fallback;
-}
+	@font-face {
+	  font-family: "RedHatText";
+	  src: url("fonts/RedHatText-Regular.woff2") format("woff2"),
+	       url("fonts/RedHatText-Regular.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 400;
+	  font-display: fallback;
+	}
 
-@font-face {
-  font-family: "RedHatText";
-  src: url("fonts/RedHatText-Medium.woff2") format("woff2"),
-       url("fonts/RedHatText/RedHatText-Medium.woff") format("woff");
-  font-style: normal;
-  font-weight: 700;
-  font-display: fallback;
-}
+	@font-face {
+	  font-family: "RedHatText";
+	  src: url("fonts/RedHatText-Medium.woff2") format("woff2"),
+	       url("fonts/RedHatText/RedHatText-Medium.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 700;
+	  font-display: fallback;
+	}
 
 	body {
 		font-family: RedHatText,"Red Hat Text",Overpass,"Helvetica Neue",Arial,sans-serif;
@@ -196,10 +207,43 @@
 		font-weight: 400;
 		line-height: 46px;
 	}
+	#aboutband {
+		display: none;
+		position: absolute;
+		top: 70px;
+		width: 700px;
+	        left: 50%;
+		margin-left: -25%;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		background-color: rgb(240,240,240);
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 4px;
+		border-color: rgb(207,0,0);
+		z-index: 100;
+		text-align: center;
+	}
+	#aboutband h2 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 26px;
+		font-weight: 400;
+	}
+	#aboutband p {
+		font-family: RedHatText, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 30px;
+		text-align: left;
+	}
+	a, a:visited, a:hover, a:active {
+		color: rgb(207,0,0);
+	}
+	
 
 	</style>
 
-	<title>Hatbot</title>
 
         </head>
 <body>
@@ -213,6 +257,20 @@
 <div id="formrow">
 <input id="textbox1" type="text" placeholder="Enter Topic" autofocus>
 <button id="gobutton" onclick="apifunction(document.getElementById('textbox1').value)" type="submit">Go</button>
+</div>
+
+<div id="aboutband">
+	<h2>About Hatbot</h2>
+	<p>Hatbot was built as an experiment in applying machine learning to content writing,
+	and to get some ML coding practice.</p>
+	<p>Hatbot was trained on a corpus of text built by scraping all 200 English language 
+	topics and articles pages on redhat.com. Model training was done in Jupyter Notebooks on Google Colab, running Tensorflow
+	and Keras. This article in this application is generated through a custom Python script, presented as an API 
+	using Flask and Gevent.</p>
+	<p>Have fun!</p>
+	<p>- Daryl Lang, Red Hat content strategist, May 2021</p>
+	<p><a href="">Source code on GitHub</a></p>
+	<button id="closebutton" onclick="closelearnmore()">Close</button>
 </div>
 
 <script>

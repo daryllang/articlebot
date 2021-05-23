@@ -123,13 +123,17 @@ def articlebot(subjectinput):
             if location == -1: 
               break
             linelength = location - lastlocation
-               
+            line = articleout[lastlocation:location]
+
             if (0 <= linelength <= 50) & (lastlinewasheader == False):
-              articleout = articleout[:lastlocation] + "<h2>" + articleout[lastlocation:location] + "</h2>\n" + articleout[location:]
+              line = line.replace(".", " ")
+              articleout = articleout[:lastlocation] + "<h2>" + line + "</h2>\n" + articleout[location:]
               lastlinewasheader = True
               location = location + 11
             else:
-              articleout = articleout[:lastlocation] + "<p>" + articleout[lastlocation:location] + "</p>\n" + articleout[location:]  
+              if (line[-1] != ".") & (line[-1] != "?") & (line[-1] != ":"):
+                line = line + "."
+              articleout = articleout[:lastlocation] + "<p>" + line + "</p>\n" + articleout[location:]  
               lastlinewasheader = False
               location = location + 9
             lastlocation = location
