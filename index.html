@@ -18,7 +18,7 @@
 		  tfrunning = true;
 		  document.getElementById("newstuff").innerHTML = "<div style=\"text-align: center\"><img src=\"spinner.gif\" width=\"64\" height=\"64\"></div>";
 		  var request = new XMLHttpRequest()
-		  let url = new URL('http://3.92.200.245:5000');
+		  let url = new URL('https://hatbot.site:5000');
 		  url.searchParams.set('subject', inputsubject);
 		  request.open('GET', url, true)
 		  request.onload = function () {
@@ -110,7 +110,7 @@
 		width: 100%;
 		padding: 0;
 		margin: 0;
-		height: 50px;
+		height: 60px;
 	}
 	#logo {
 		font-size: 25px;
@@ -138,6 +138,44 @@
 		float: right;
 		padding-right: 25px;
 	}
+	
+	@media only screen and (max-width: 700px) {
+		.header {
+			background-color: rgb(21,21,21);
+			color: rgb(255,255,255);		
+			display: block;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			height: 120px;
+		}
+		#logo {
+			font-size: 25px;
+			font-family: RedHatDisplay;
+			font-weight: bold;
+			padding: 15px;
+			margin: 0px;
+			float: left;
+			display: flex;
+			line-height: 21px;
+		}
+		#description {
+			display: flex;
+			line-height: 16px;
+			font-size: 16px;
+			padding-left: 15px;
+			float: left;
+		}
+		#helpicon {
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			width: 30px;
+			height: 30px;
+			padding: 0px;
+			margin: 0px;
+		}
+	}
 	#formrow {
 		margin: 30px;
 		text-align: center;
@@ -148,6 +186,7 @@
 		border-color: rgb(153, 153, 153);
 		border-width: 1px;
 		padding: 10px;
+		margin-top:10px;
 	}
 	button {
 		font-family: RedHatDisplay;
@@ -161,10 +200,13 @@
 		padding-top: 11px;
 		padding-bottom: 11px;
 		margin-left:10px;
+		margin-top:10px;
 	}
 	#article {
     		max-width: 715px;
 		margin: 0 auto 0;
+		padding-right: 15px;
+		padding-left: 15px;
 	}
 	#article h1 {
 		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
@@ -209,11 +251,12 @@
 	}
 	#aboutband {
 		display: none;
-		position: absolute;
-		top: 70px;
-		width: 700px;
-	        left: 50%;
-		margin-left: -25%;
+		position: fixed;
+		top: 50px;
+		max-width: 700px;
+	        left: 0;
+		right: 0;
+		margin: 5% auto;
 		padding-left: 20px;
 		padding-right: 20px;
 		padding-bottom: 20px;
@@ -232,10 +275,15 @@
 	}
 	#aboutband p {
 		font-family: RedHatText, Overpass, Helvetica, Arial, sans-serif;
-		font-size: 18px;
+		font-size: 16px;
 		font-weight: 300;
-		line-height: 30px;
+		line-height: 20px;
 		text-align: left;
+	}
+	#x {
+		position: absolute;
+		top: 0px;
+		right: 0px;
 	}
 	a, a:visited, a:hover, a:active {
 		color: rgb(207,0,0);
@@ -260,16 +308,16 @@
 </div>
 
 <div id="aboutband">
-	<h2>About Hatbot</h2>
-	<p>Hatbot was built as an experiment in applying machine learning to content writing,
-	and to get some ML coding practice.</p>
-	<p>Hatbot was trained on a corpus of text built by scraping all 200 English language 
+	<h2>About</h2>
+	<a id="x" onclick="closelearnmore()">&#9421;</a>
+	<p>Hatbot was built as an experiment in applying machine learning to content writing.</p>
+	<p>To teach Hatbot, I fed it a corpus of text built scraped from 200 English-language 
 	topics and articles pages on redhat.com. Model training was done in Jupyter Notebooks on Google Colab, running Tensorflow
-	and Keras. This article in this application is generated through a custom Python script, presented as an API 
+	and Keras. This web app is generated through a custom Python script, presented as an API 
 	using Flask and Gevent.</p>
 	<p>Have fun!</p>
 	<p>- Daryl Lang, Red Hat content strategist, May 2021</p>
-	<p><a href="">Source code on GitHub</a></p>
+	<p><a href="https://github.com/daryllang/hatbot">Source code on GitHub</a></p>
 	<button id="closebutton" onclick="closelearnmore()">Close</button>
 </div>
 
