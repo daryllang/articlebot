@@ -168,6 +168,7 @@ def home():
 #app.run(host='0.0.0.0', port=5000)
 if __name__ == '__main__':
     http_server = WSGIServer(('', 5000), app, keyfile='/etc/letsencrypt/live/hatbot.site/privkey.pem', certfile='/etc/letsencrypt/live/hatbot.site/fullchain.pem')
+#    http_server = WSGIServer(('127.0.0.1', 5000), app)
     http_server.serve_forever()
 
 

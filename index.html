@@ -23,7 +23,7 @@
 		  tfrunning = true;
 		  document.getElementById("newstuff").innerHTML = "<div style=\"text-align: center\"><img src=\"spinner.gif\" width=\"64\" height=\"64\"></div>";
 		  var request = new XMLHttpRequest()
-		  let url = new URL('https://hatbot.site:5000');
+		  let url = new URL('https://hatbot.site:5000'); //Alt: http://127.0.0.1:5000
 		  url.searchParams.set('subject', inputsubject);
 		  request.open('GET', url, true)
 		  request.onload = function () {
@@ -32,12 +32,12 @@
 			      document.getElementById("newstuff").innerHTML = String(data);			      
 		  	      tfrunning = false;
 			} else {
-			      document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>API error</h2></div>";
+			      document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>API returned an error</h2></div>";
                               tfrunning = false;
 			}	 
 		  }
 		  request.onerror = function () {
-			  document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>Error</h2></div>";      
+			  document.getElementById("newstuff").innerHTML = "<div id=\"article\"><h2>Unable to load the API</h2></div>";      
 		          tfrunning = false;
 		  }
 		  request.send();
@@ -70,11 +70,11 @@
 </div>
 
 <div id="aboutband">
-	<h2>About</h2>
+	<h2>What is this?</h2>
 	<a id="x" onclick="closelearnmore()">&#215;</a>
-	<p>Hatbot accepts a word or phrase then intrepidly tries to write an article about it in the style of redhat.com. I built this as a learning exercise. Have fun!</p>
+	<p>Hatbot accepts a word or phrase then intrepidly tries to write an article about it in the style of redhat.com. I built this as a learning exercise using TensorFlow. Have fun!</p>
 	<p><em>- Daryl Lang, Red Hat content strategist, May 2021</em></p>
-	<p><a href="https://github.com/daryllang/hatbot">Source code on GitHub</a></p>
+	<p><a href="https://github.com/daryllang/hatbot" target="_blank" rel="noopener noreferrer">Source code on GitHub</a></p>
 	<button id="closebutton" onclick="closelearnmore()">Close</button>
 </div>
 
