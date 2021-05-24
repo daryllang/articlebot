@@ -1,6 +1,6 @@
 <h1>Meet Hatbot</h1>
 
-Hatbot accepts a word or phrase then fearlessly tries to write an article about it in the style of redhat.com. It was trained on a corpus of 200 redhat.com articles using a machine learning algorithm.
+Hatbot accepts any word or phrase then fearlessly tries to write an article in the style of redhat.com. It was trained on a corpus of 200 redhat.com articles using a machine learning algorithm.
 
 Humans interface with Hatbot through a web app (index.html).
 
