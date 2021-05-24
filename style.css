@@ -1,0 +1,242 @@
+	@font-face {
+	  font-family: "RedHatDisplay";
+	  src: url("fonts/RedHatDisplay-Regular.woff2") format("woff2"),
+	       url("fonts/RedHatDisplay-Regular.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 300;
+	  font-display: fallback;
+	}
+
+	@font-face {
+	  font-family: "RedHatDisplay";
+	  src: url("fonts/RedHatDisplay-Medium.woff2") format("woff2"),
+	       url("fonts/RedHatDisplay-Medium.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 400;
+	  font-display: fallback;
+	}
+
+	@font-face {
+	  font-family: "RedHatDisplay";
+	  src: url("fonts/RedHatDisplay-Bold.woff2") format("woff2"),
+	       url("fonts/RedHatDisplay-Bold.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 700;
+	  font-display: fallback;
+	}
+
+	@font-face {
+	  font-family: "RedHatText";
+	  src: url("fonts/RedHatText-Regular.woff2") format("woff2"),
+	       url("fonts/RedHatText-Regular.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 400;
+	  font-display: fallback;
+	}
+
+	@font-face {
+	  font-family: "RedHatText";
+	  src: url("fonts/RedHatText-Medium.woff2") format("woff2"),
+	       url("fonts/RedHatText/RedHatText-Medium.woff") format("woff");
+	  font-style: normal;
+	  font-weight: 700;
+	  font-display: fallback;
+	}
+
+	body {
+		font-family: RedHatText,"Red Hat Text",Overpass,"Helvetica Neue",Arial,sans-serif;
+		padding: 0px;
+		margin: 0px;
+	}
+        .header {
+		background-color: rgb(21,21,21);
+		color: rgb(255,255,255);		
+		display: block;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		height: 60px;
+	}
+	#logo {
+		font-size: 25px;
+		font-family: RedHatDisplay;
+		font-weight: bold;
+		padding: 15px;
+		margin: 0px;
+		float: left;
+		display: flex;
+		line-height: 21px;
+	}
+	#description {
+		display: flex;
+		line-height: 21px;
+		font-size: 16px;
+		padding-left: 25px;
+		float: left;
+	}
+	#helpicon {
+		display: flex;
+		width: 30px;
+		height: 30px;
+		padding-top: 10px;
+		margin-bottom: 10px;
+		float: right;
+		padding-right: 25px;
+	}
+	
+	@media only screen and (max-width: 700px) {
+		.header {
+			background-color: rgb(21,21,21);
+			color: rgb(255,255,255);		
+			display: block;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			height: 100px;
+		}
+		#logo {
+			font-size: 25px;
+			font-family: RedHatDisplay;
+			font-weight: bold;
+			padding-left: 15px;
+			padding-top: 15px;
+			padding-right: 15px;
+			padding-bottom: 0px;
+			margin: 0px;
+			float: left;
+			display: flex;
+			line-height: 21px;
+		}
+		#description {
+			display: flex;
+			line-height: 18px;
+			font-size: 16px;
+			padding-left: 15px;
+			float: left;
+		}
+		#helpicon {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 30px;
+			height: 30px;
+			padding: 0px;
+			margin: 0px;
+		}
+	}
+	#formrow {
+		margin: 30px;
+		text-align: center;
+	}
+	input {
+		font-family: RedHatText;
+		font-size: 20px;
+		border-color: rgb(153, 153, 153);
+		border-width: 1px;
+		padding: 10px;
+		margin-top:10px;
+		width: 200px;
+	}
+	button {
+		font-family: RedHatDisplay;
+		font-size: 20px;
+		color: rgb(255, 255, 255);
+		background-color: rgb(207, 0, 0);
+		border-width: 0px;
+		border-radius: 4px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 11px;
+		padding-bottom: 11px;
+		margin-left:10px;
+		margin-top:10px;
+	}
+	#article {
+    		max-width: 715px;
+		margin: 0 auto 0;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	#article h1 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 40px;
+		font-weight: 300;
+		line-height: 48px;
+		border-bottom-color: rgb(210, 211, 213);
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		padding-bottom: 30px;
+		padding-top: 40px;
+	}
+	#article h2 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 31px;
+	}
+	#article p {
+		font-family: RedHatText, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 30px;
+	}
+	#bottomband {
+		background-color: rgb(240, 240, 240);
+		width: 100%;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		padding-left: 0px;
+		padding-right: 0px;
+		border-bottom-style: solid;
+		border-bottom-width: 30px;
+		border-bottom-color: rgb(21, 21, 21);
+		text-align: center;
+	}
+	#bottomband h2 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 36px;
+		font-weight: 400;
+		line-height: 46px;
+	}
+	#aboutband {
+		display: none;
+		position: fixed;
+		top: 0px;
+		max-width: 700px;
+	        left: 5;
+		right: 5;
+		margin: 5px auto;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		padding-top: 0px;
+		background-color: rgb(240,240,240);
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 4px;
+		border-color: rgb(207,0,0);
+		z-index: 100;
+		text-align: center;
+	}
+	#aboutband h2 {
+		font-family: RedHatDisplay, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 26px;
+		font-weight: 400;
+	}
+	#aboutband p {
+		font-family: RedHatText, Overpass, Helvetica, Arial, sans-serif;
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 20px;
+		text-align: left;
+	}
+	#x {
+		position: absolute;
+		top: -10px;
+		right: 5px;
+		font-size: 40px;
+		cursor: default;
+	}
+	a, a:visited, a:hover, a:active {
+		color: rgb(207,0,0);
+	}	
