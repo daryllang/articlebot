@@ -22,7 +22,9 @@ from gevent.pywsgi import WSGIServer
 #Define articlebot function
 
 def articlebot(subjectinput):
-        one_step_model = tf.saved_model.load('use-this-model')
+        dirname = os.path.dirname(__file__)
+        modelfile = os.path.join(dirname, 'use-this-model')
+        one_step_model = tf.saved_model.load(modelfile)
 
         seedphrase = subjectinput
         tobeword = "is "
@@ -167,7 +169,7 @@ def home():
 
 #app.run(host='0.0.0.0', port=5000)
 if __name__ == '__main__':
-    http_server = WSGIServer(('', 5000), app, keyfile='/etc/letsencrypt/live/hatbot.site/privkey.pem', certfile='/etc/letsencrypt/live/hatbot.site/fullchain.pem')
+    http_server = WSGIServer(('', 4000), app, keyfile='/etc/letsencrypt/live/hatbot.site/privkey.pem', certfile='/etc/letsencrypt/live/hatbot.site/fullchain.pem')
 #    http_server = WSGIServer(('127.0.0.1', 5000), app)
     http_server.serve_forever()
 
